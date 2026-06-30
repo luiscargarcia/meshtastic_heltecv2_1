@@ -5,7 +5,7 @@ on:
   repository_dispatch:   # Optional external trigger
     types: [meshtastic-release]
   schedule:
-    - cron: "0 2 * * *"  # Fallback: run daily to check for new releases
+    - cron: "10 8 * * *"  # Fallback: run daily to check for new releases
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.14"
 
       - name: Install PlatformIO
         run: |
