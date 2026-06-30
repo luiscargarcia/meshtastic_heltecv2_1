@@ -30,6 +30,11 @@ jobs:
           cd firmware
           git checkout develop  # or 'master' if you prefer stable
 
+      - name: Patch ADC type for newer compiler
+        run: |
+          cd firmware
+          sed -i 's/static const adc_channel_t adc_channel = ADC_CHANNEL;/static const adc_channel_t adc_channel = static_cast<adc_channel_t>(ADC_CHANNEL);/' src/Power.cpp
+
       - name: Build Heltec V2 firmware
         run: |
           cd firmware
