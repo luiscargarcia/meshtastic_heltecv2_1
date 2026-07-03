@@ -5,7 +5,7 @@ on:
   repository_dispatch:   # Optional external trigger
     types: [meshtastic-release]
   schedule:
-    - cron: "10 8 * * *"  # Fallback: run daily to check for new releases
+    - cron: "10 8 * * 1,3,5"  # Fallback: run daily to check for new releases
 
 jobs:
   build:
